@@ -1,0 +1,395 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.14.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\AppRoute.tsx" />
+    <None Remove="ClientApp\src\AppRouteDrawer.tsx" />
+    <None Remove="ClientApp\src\AppStore.ts" />
+    <None Remove="ClientApp\src\assets\material-ui.png" />
+    <None Remove="ClientApp\src\assets\react-redux.png" />
+    <None Remove="ClientApp\src\assets\react.png" />
+    <None Remove="ClientApp\src\assets\swallow1.png" />
+    <None Remove="ClientApp\src\assets\swallow2.png" />
+    <None Remove="ClientApp\src\assets\typescript.png" />
+    <None Remove="ClientApp\src\global.ts" />
+    <None Remove="ClientApp\src\history.ts" />
+    <None Remove="ClientApp\src\store\Account\action.ts" />
+    <None Remove="ClientApp\src\store\Account\model.ts" />
+    <None Remove="ClientApp\src\store\Account\reducer.ts" />
+    <None Remove="ClientApp\src\store\Archive\action.ts" />
+    <None Remove="ClientApp\src\store\Archive\model.ts" />
+    <None Remove="ClientApp\src\store\Archive\reducer.ts" />
+    <None Remove="ClientApp\src\store\Layout\action.ts" />
+    <None Remove="ClientApp\src\store\Layout\model.ts" />
+    <None Remove="ClientApp\src\store\Layout\reducer.ts" />
+    <None Remove="ClientApp\src\store\Overlay\action.ts" />
+    <None Remove="ClientApp\src\store\Overlay\model.ts" />
+    <None Remove="ClientApp\src\store\Overlay\reducer.ts" />
+    <None Remove="ClientApp\src\store\rootAction.ts" />
+    <None Remove="ClientApp\src\store\rootModel.ts" />
+    <None Remove="ClientApp\src\store\rootReducers.ts" />
+    <None Remove="ClientApp\src\store\SideDrawer\action.ts" />
+    <None Remove="ClientApp\src\store\SideDrawer\model.ts" />
+    <None Remove="ClientApp\src\store\SideDrawer\reducer.ts" />
+    <None Remove="ClientApp\src\store\Theme\action.ts" />
+    <None Remove="ClientApp\src\store\Theme\model.ts" />
+    <None Remove="ClientApp\src\store\Theme\reducer.ts" />
+    <None Remove="ClientApp\src\views\Account\index.tsx" />
+    <None Remove="ClientApp\src\views\Account\style.ts" />
+    <None Remove="ClientApp\src\views\Archive\index.tsx" />
+    <None Remove="ClientApp\src\views\Archive\style.ts" />
+    <None Remove="ClientApp\src\views\Favorite\index.tsx" />
+    <None Remove="ClientApp\src\views\Favorite\style.ts" />
+    <None Remove="ClientApp\src\views\Home\index.tsx" />
+    <None Remove="ClientApp\src\views\Home\style.ts" />
+    <None Remove="ClientApp\src\views\IdLink\index.tsx" />
+    <None Remove="ClientApp\src\views\IdLink\style.ts" />
+    <None Remove="ClientApp\src\views\Layout\index.tsx" />
+    <None Remove="ClientApp\src\views\Layout\style.ts" />
+    <None Remove="ClientApp\src\views\Settings\index.tsx" />
+    <None Remove="ClientApp\src\views\Settings\pallete\aspenGold.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\blackBlazingYellow.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\blackCherryTomato.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\blackOrange.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\blackWhite.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\blueOrange.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\brightRed.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\brownSugar.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\cherryTomato.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\copperCoin.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\creamGold.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\darkGreen.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\duskyCitron.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\electricBlue.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\forestGreen.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\grayLimePunch.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\hunterGreen.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\islandGreen.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\livingCoral.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\mangoMojito.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\orangeWhite.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\paleGreen.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\pinkNavyBlue.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\pinkSalt.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\purpleSapphire.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\royalBlue.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\royalPurple.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\sailorBlue.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\skyBlue.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\soybean.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\spaceCherry.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\sweetCorn.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\turkishSea.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\turquoise.ts" />
+    <None Remove="ClientApp\src\views\Settings\pallete\ultraViolet.ts" />
+    <None Remove="ClientApp\src\views\Settings\style.ts" />
+    <None Remove="ClientApp\src\views\SideDrawer\index.tsx" />
+    <None Remove="ClientApp\src\views\SideDrawer\style.ts" />
+    <None Remove="ClientApp\src\views\Titlebar\index.tsx" />
+    <None Remove="ClientApp\src\views\Titlebar\style.ts" />
+    <None Remove="ClientApp\src\views\Titlebar\style.ts~RF15918fb6.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\src\assets\material-ui.png" />
+    <Content Include="ClientApp\src\assets\react-redux.png" />
+    <Content Include="ClientApp\src\assets\react.png" />
+    <Content Include="ClientApp\src\assets\swallow1.png" />
+    <Content Include="ClientApp\src\assets\swallow2.png" />
+    <Content Include="ClientApp\src\assets\typescript.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GrandMonsieur.Core\GrandMonsieur.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\core\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\AppRoute.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\AppRouteDrawer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\AppStore.ts" />
+    <TypeScriptCompile Include="ClientApp\src\global.ts" />
+    <TypeScriptCompile Include="ClientApp\src\history.ts" />
+    <TypeScriptCompile Include="ClientApp\src\store\Account\action.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Account\model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Account\reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Archive\action.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Archive\model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Archive\reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\rootAction.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Layout\action.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Layout\model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Layout\reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Overlay\action.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Overlay\reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Overlay\model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\store\rootModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\store\rootReducers.ts" />
+    <TypeScriptCompile Include="ClientApp\src\store\SideDrawer\action.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\SideDrawer\model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\SideDrawer\reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Theme\action.ts" />
+    <TypeScriptCompile Include="ClientApp\src\store\Theme\model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\store\Theme\reducer.ts" />
+    <TypeScriptCompile Include="ClientApp\src\views\Account\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Account\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Archive\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Archive\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Favorite\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Favorite\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Home\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Home\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\IdLink\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\IdLink\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Layout\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\views\Layout\style.ts" />
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\soybean.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\aspenGold.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\orangeWhite.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\darkGreen.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\sweetCorn.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\brightRed.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\pinkNavyBlue.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\purpleSapphire.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\hunterGreen.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\spaceCherry.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\mangoMojito.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\blackCherryTomato.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\pinkSalt.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\islandGreen.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\royalPurple.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\turkishSea.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\brownSugar.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\blackOrange.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\duskyCitron.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\skyBlue.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\copperCoin.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\paleGreen.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\cherryTomato.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\blackBlazingYellow.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\creamGold.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\electricBlue.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\royalBlue.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\forestGreen.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\grayLimePunch.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\sailorBlue.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\blueOrange.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\turquoise.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\blackWhite.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\ultraViolet.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\pallete\livingCoral.ts" />
+    <TypeScriptCompile Include="ClientApp\src\views\Settings\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\SideDrawer\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\SideDrawer\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Titlebar\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Titlebar\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**; $(SpaRoot)build-ssr\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES2019</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+
+</Project>
