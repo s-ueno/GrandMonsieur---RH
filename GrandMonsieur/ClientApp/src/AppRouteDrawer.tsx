@@ -62,11 +62,18 @@ const cssInCode = makeStyles((theme) => ({
     },
 }));
 
-type Props = {
+export type MenuProps = {
     svgIcon: string;
     text: string;
     to: string;
 }
+export const MenuList: MenuProps[] = [
+    { svgIcon: mdiHomeOutline, to: "/", text: "Home" },
+    { svgIcon: mdiPlaylistStar, to: "/favorite", text: "Favorite" },
+    { svgIcon: mdiCloudCheckOutline, to: "/archive", text: "Archive" },
+    //{ svgIcon: mdiLinkVariantPlus, to: "/idlink", text: "Id Link" },
+    { svgIcon: mdiCogTransferOutline, to: "/settings", text: "Settings" },
+];
 
 const AppRouteDrawer: React.FC = () => {
     const dispatch: Dispatch<any> = useDispatch();
@@ -94,7 +101,7 @@ const AppRouteDrawer: React.FC = () => {
     // 画面遷移が終わるまでアニメーションが止まるので、遅延させたいが、localstate じゃダメだった。。。
     //const [performanceIsuue, SetPerformanceIssue] = useState("");
     function MakeListItems(props) {
-        return props.items.map((x: Props) => {
+        return props.items.map((x: MenuProps) => {
             return (
                 <li key={`key-${uuidv4()}`}>
                     { /* <Link to={performanceIsuue}> */}
@@ -115,7 +122,7 @@ const AppRouteDrawer: React.FC = () => {
             )
         });
     }
-    function NotifyTitleChange(x: Props, menuClose: boolean = false) {
+    function NotifyTitleChange(x: MenuProps, menuClose: boolean = false) {
         if (menuClose) {
             dispatch(updateDrawer(!drawer.open));
         }
@@ -126,13 +133,7 @@ const AppRouteDrawer: React.FC = () => {
     return (
         <Fragment>
             <MakeListItems
-                items={[
-                    { svgIcon: mdiHomeOutline, to: "/", text: "Home" },
-                    { svgIcon: mdiPlaylistStar, to: "/favorite", text: "Favorite" },
-                    { svgIcon: mdiCloudCheckOutline, to: "/archive", text: "Archive" },
-                    { svgIcon: mdiLinkVariantPlus, to: "/idlink", text: "Id Link" },
-                    { svgIcon: mdiCogTransferOutline, to: "/settings", text: "Settings" },
-                ]}
+                items={MenuList}
             />
         </Fragment>
     );

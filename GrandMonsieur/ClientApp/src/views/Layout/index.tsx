@@ -10,6 +10,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import { IRootState } from "../../store/rootModel";
 import Titlebar from "../Titlebar";
 import SideDrawer from "../SideDrawer";
+import BottomNav from "../BottomNav";
 
 /** css in js(ts)  */
 import clsx from "clsx";
@@ -27,27 +28,28 @@ const Layout: React.FC = (props) => {
         <div className={css.root}>
             {/* タイトルバー */}
             <Titlebar />
-            {/* サイドバー */}
-            <SideDrawer />
+
+            { /* smより小さくなった場合に非表示 ≒　PCサイズの場合のサイドメニュー構成 */}
+            <Hidden smDown implementation="css">
+                {/* サイドバー */}
+                <SideDrawer />
+            </Hidden>
+
             {/* メインのコンテンツ */}
             <div className={css.mainContainer}>
-                <Hidden smDown implementation="css">
-                    <main id="content-wrapper" className={clsx(css.main, !drawer.open && css.mainDrawerClose)}>
-                        {children}
-                        <Backdrop className={css.backdrop} open={overlay.openWaitingContent} >
-                            <CircularProgress color="inherit" />
-                        </Backdrop>
-                    </main>
-                </Hidden>
-                <Hidden mdUp implementation="css">
-                    <main id="content-wrapper" className={clsx(css.main, drawer.open && css.mainDrawerClose)}>
-                        {children}
-                        <Backdrop className={css.backdrop} open={overlay.openWaitingContent} >
-                            <CircularProgress color="inherit" />
-                        </Backdrop>
-                    </main>
-                </Hidden>
+                <main id="content-wrapper" className={clsx(css.main, !drawer.open && css.mainDrawerClose)}>
+                    {children}
+                    <Backdrop className={css.backdrop} open={overlay.openWaitingContent} >
+                        <CircularProgress color="inherit" />
+                    </Backdrop>
+                </main>
             </div>
+
+            { /* mdより大きくなった場合に非表示 ≒　スマフォサイズの場合のサイドメニュー構成 */}
+            <Hidden mdUp implementation="css">
+                {/* ボトムバー */}
+                <BottomNav />
+            </Hidden>
         </div>
     );
 };

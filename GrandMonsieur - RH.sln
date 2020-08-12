@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrandMonsieur", "GrandMonsieur\GrandMonsieur.csproj", "{D94E820D-2C32-48F8-B35D-961FEDE42812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrandMonsieur", "GrandMonsieur\GrandMonsieur.csproj", "{D94E820D-2C32-48F8-B35D-961FEDE42812}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrandMonsieur.Core", "GrandMonsieur.Core\GrandMonsieur.Core.csproj", "{D2A213FD-A67F-4B89-BCB7-3D493CCD175A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrandMonsieur.Core", "GrandMonsieur.Core\GrandMonsieur.Core.csproj", "{D2A213FD-A67F-4B89-BCB7-3D493CCD175A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A47CFCE1-BE1A-4619-B696-3754D0B19366}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

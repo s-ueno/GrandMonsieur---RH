@@ -4,7 +4,7 @@ import { transition, boxShadow, grayColor, whiteColor } from '../../assets/mater
 import { drawerWidth, drawerMinWidth } from '../../global';
 
 //css
-const style: Styles<Theme, {}> = (theme) => ({
+const style: Styles<Theme, {}> = (theme: Theme) => ({
     drawerPaper: {
         border: "none",
         position: "fixed",
@@ -20,7 +20,7 @@ const style: Styles<Theme, {}> = (theme) => ({
             height: "100%"
         },
         [theme.breakpoints.down("sm")]: {
-            
+
         }
     },
     bg: {
@@ -65,16 +65,6 @@ const style: Styles<Theme, {}> = (theme) => ({
     divider: {
         margin: "0 15px"
     },
-    logo: {
-        color: grayColor[2],
-        fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-        textDecoration: "none",
-        "& small": {
-            color: grayColor[1],
-            fontWeight: "400",
-            lineHeight: "1"
-        }
-    },
     reactIconHeight: {
         height: "30px",
         marginLeft: "2px",
@@ -112,13 +102,9 @@ const style: Styles<Theme, {}> = (theme) => ({
         width: "70px",
         boxShadow: theme.shadows[5]
     },
-    hiddenFooter: {
-        visibility: "collapse",
-        height: 0,        
-    },
     hiddenHeader: {
         visibility: "hidden",
-    }
+    },
 });
 
 export default style;

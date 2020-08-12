@@ -69,6 +69,8 @@
     <None Remove="ClientApp\src\views\Account\style.ts" />
     <None Remove="ClientApp\src\views\Archive\index.tsx" />
     <None Remove="ClientApp\src\views\Archive\style.ts" />
+    <None Remove="ClientApp\src\views\BottomNav\index.tsx" />
+    <None Remove="ClientApp\src\views\BottomNav\style.ts" />
     <None Remove="ClientApp\src\views\Favorite\index.tsx" />
     <None Remove="ClientApp\src\views\Favorite\style.ts" />
     <None Remove="ClientApp\src\views\Home\index.tsx" />
@@ -205,6 +207,12 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\Archive\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\BottomNav\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\BottomNav\style.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\Favorite\index.tsx">

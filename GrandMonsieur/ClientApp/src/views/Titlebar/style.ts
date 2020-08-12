@@ -5,6 +5,18 @@ import { drawerWidth, drawerMinWidth } from '../../global';
 
 //css
 const style: Styles<Theme, {}> = (theme) => ({
+
+    navIcon: {
+        position: "absolute",
+    },
+    smNavToolbar: {
+        [theme.breakpoints.down("sm")]: {
+            visibility: "collapse",
+            paddingRight: 0,
+        }
+    },
+
+
     toolbar: {
         paddingRight: 24,
     },
@@ -15,8 +27,7 @@ const style: Styles<Theme, {}> = (theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        /* タイトルバーとメインコンテンツの色を同じにする */
-        //background: "transparent",
+
     },
     appBarShift: {
         marginLeft: drawerWidth,
@@ -25,6 +36,12 @@ const style: Styles<Theme, {}> = (theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
+
+
+        [theme.breakpoints.down("sm")]: {
+            marginLeft: 0,
+            width: "100%",
+        }
     },
     flexGrow: {
         flexGrow: 1,

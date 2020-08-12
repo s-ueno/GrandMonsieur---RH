@@ -46,7 +46,7 @@ const Titlebar: React.FC = () => {
     function MakeNavSvgIcon(path: string) {
         if (!path) return null;
         return (
-            <SvgIcon style={{ position: "absolute" }}><path d={path} /></SvgIcon>
+            <SvgIcon className={classes.navIcon} ><path d={path} /></SvgIcon>
         );
     }
     function MakeArchiveSvgIcon() {
@@ -67,107 +67,54 @@ const Titlebar: React.FC = () => {
     }
     return (
         <div className={classes.root}>
-            { /* smより小さくなった場合に非表示 ≒　PCサイズの場合のサイドメニュー構成 */}
-            <Hidden smDown implementation="css">
-                <AppBar
-                    elevation={0 /* タイトルバーのshadowスタイルを消す */}
-                    position="fixed"
-                    color="default"
-                    className={clsx(classes.appBar, drawer.open && classes.appBarShift)}
-                >
-                    <Toolbar className={clsx(classes.toolbar)}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => OnChangeDrawerState()}
-                            edge="start"
-                            className={clsx(classes.menuButton)}
-                        >
-                            <MenuIcon className={classes.svgIcon} />
-                        </IconButton>
+            <AppBar
+                elevation={0 /* タイトルバーのshadowスタイルを消す */}
+                position="fixed"
+                color="default"
+                className={clsx(classes.appBar, drawer.open && classes.appBarShift)}
+            >
+                <Toolbar className={clsx(classes.toolbar)}>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={() => OnChangeDrawerState()}
+                        edge="start"
+                        className={clsx(classes.menuButton, classes.smNavToolbar)}
+                    >
+                        <MenuIcon className={classes.svgIcon} />
+                    </IconButton>
 
-                        <div
-                            className={classes.flexGrow}
-                        >
-                            {MakeNavSvgIcon(title.icon)}
-                            {"  "}
-                            <span className={classes.title}>{title.title}</span>
-                        </div>
+                    <div
+                        className={classes.flexGrow}
+                    >
+                        {MakeNavSvgIcon(title.icon)}
+                        {"  "}
+                        <span className={classes.title}>{title.title}</span>
+                    </div>
 
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => ShowArchive()}
-                            edge="start"
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={() => ShowArchive()}
+                        edge="start"
+                    >
+                        <Badge
+                            className={classes.badge}
+                            badgeContent={archive.processing} color="secondary"
                         >
-                            <Badge
-                                className={classes.badge}
-                                badgeContent={archive.processing} color="secondary"
-                            >
-                                {MakeArchiveSvgIcon()}
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => ShowAccont()}
-                            edge="start"
-                        >
-                            <SvgIcon><path d={mdiAccount} /></SvgIcon>
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
-            </Hidden>
-            <Hidden mdUp implementation="css">
-                <AppBar
-                    elevation={0 /* タイトルバーのshadowスタイルを消す */}
-                    position="fixed"
-                    color="default"
-                    className={clsx(classes.appBar, !drawer.open && classes.appBarShift)}
-                >
-                    <Toolbar className={clsx(classes.toolbar)}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => OnChangeDrawerState()}
-                            edge="start"
-                            className={clsx(classes.menuButton)}
-                        >
-                            <MenuIcon className={classes.svgIcon}/>
-                        </IconButton>
-
-                        <div
-                            className={classes.flexGrow}
-                        >
-                            {MakeNavSvgIcon(title.icon)}
-                            {"  "}
-                            <span className={classes.title}>{title.title}</span>
-                        </div>
-
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => ShowArchive()}
-                            edge="start"
-                        >
-                            <Badge
-                                className={classes.badge}
-                                badgeContent={archive.processing} color="secondary"
-                            >
-                                {MakeArchiveSvgIcon()}
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => ShowAccont()}
-                            edge="start"
-                        >
-                            <SvgIcon><path d={mdiAccount} /></SvgIcon>
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
-            </Hidden>
+                            {MakeArchiveSvgIcon()}
+                        </Badge>
+                    </IconButton>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={() => ShowAccont()}
+                        edge="start"
+                    >
+                        <SvgIcon><path d={mdiAccount} /></SvgIcon>
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
         </div>
     );
 };
