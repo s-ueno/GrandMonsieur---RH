@@ -8,7 +8,11 @@ import { initialPalette } from '../../store/Theme/model';
 const style: Styles<Theme, {}> = (theme: Theme) => ({
 
     root: {
+        padding: 10,
+    },
 
+    ignoreBoxShadow: {
+        boxShadow: "none !important",
     },
 
     logo: {

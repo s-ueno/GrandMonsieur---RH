@@ -15,6 +15,7 @@ import BottomNav from "../BottomNav";
 /** css in js(ts)  */
 import clsx from "clsx";
 import style from "./style";
+import PlayDrawer from "../PlayDrawer";
 
 const cssInCode = makeStyles(style);
 
@@ -44,6 +45,9 @@ const Layout: React.FC = (props) => {
                     </Backdrop>
                 </main>
             </div>
+
+            <PlayDrawer
+            />
 
             { /* mdより大きくなった場合に非表示 ≒　スマフォサイズの場合のサイドメニュー構成 */}
             <Hidden mdUp implementation="css">

@@ -1,7 +1,7 @@
 ﻿import { Theme } from '@material-ui/core/styles';
 import { Styles } from '@material-ui/styles';
 import { transition } from '../../assets/material-dashboard-react';
-import { drawerWidth, drawerMinWidth } from '../../global';
+import { drawerWidth, drawerMinWidth, appbarHeight } from '../../global';
 
 //css
 const style: Styles<Theme, {}> = (theme) => ({
@@ -36,6 +36,7 @@ const style: Styles<Theme, {}> = (theme) => ({
         minHeight: "100%",
         height: "100%",
         overflowScrolling: "touch",
+        paddingBottom: appbarHeight
     },
     mainDrawerClose: {
         [theme.breakpoints.up("md")]: {

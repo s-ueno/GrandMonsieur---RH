@@ -32,3 +32,14 @@ export function Delay(msec: number, lazyAction?: Function) {
         }, 1);
     });
 }
+
+var setTimeoutHandle: { [key: string]: any } = {};
+export function Lazy(action: Function, msec: number) {
+    const key = action.toString();
+    clearTimeout(setTimeoutHandle[key]);
+    return new Promise((resolve, reject) => {
+        setTimeoutHandle[key] = setTimeout(() => {
+            resolve(action());
+        }, msec);
+    });
+}

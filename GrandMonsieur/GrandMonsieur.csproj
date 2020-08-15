@@ -33,6 +33,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\public\assets\bilibili.png" />
+    <None Remove="ClientApp\public\assets\dailymotion.png" />
+    <None Remove="ClientApp\public\assets\niconico.png" />
+    <None Remove="ClientApp\public\assets\yt_icon_rgb.png" />
     <None Remove="ClientApp\src\AppRoute.tsx" />
     <None Remove="ClientApp\src\AppRouteDrawer.tsx" />
     <None Remove="ClientApp\src\AppStore.ts" />
@@ -42,6 +46,12 @@
     <None Remove="ClientApp\src\assets\swallow1.png" />
     <None Remove="ClientApp\src\assets\swallow2.png" />
     <None Remove="ClientApp\src\assets\typescript.png" />
+    <None Remove="ClientApp\src\components\Autocomplete\index.tsx" />
+    <None Remove="ClientApp\src\components\Autocomplete\style.ts" />
+    <None Remove="ClientApp\src\components\Button\ImageButton.tsx" />
+    <None Remove="ClientApp\src\components\Button\style.ts" />
+    <None Remove="ClientApp\src\components\Tile\index.tsx" />
+    <None Remove="ClientApp\src\components\Tile\style.ts" />
     <None Remove="ClientApp\src\global.ts" />
     <None Remove="ClientApp\src\history.ts" />
     <None Remove="ClientApp\src\store\Account\action.ts" />
@@ -53,9 +63,15 @@
     <None Remove="ClientApp\src\store\Layout\action.ts" />
     <None Remove="ClientApp\src\store\Layout\model.ts" />
     <None Remove="ClientApp\src\store\Layout\reducer.ts" />
+    <None Remove="ClientApp\src\store\Movie\action.ts" />
+    <None Remove="ClientApp\src\store\Movie\model.ts" />
+    <None Remove="ClientApp\src\store\Movie\reducer.ts" />
     <None Remove="ClientApp\src\store\Overlay\action.ts" />
     <None Remove="ClientApp\src\store\Overlay\model.ts" />
     <None Remove="ClientApp\src\store\Overlay\reducer.ts" />
+    <None Remove="ClientApp\src\store\PlayDrawer\action.ts" />
+    <None Remove="ClientApp\src\store\PlayDrawer\model.ts" />
+    <None Remove="ClientApp\src\store\PlayDrawer\reducer.ts" />
     <None Remove="ClientApp\src\store\rootAction.ts" />
     <None Remove="ClientApp\src\store\rootModel.ts" />
     <None Remove="ClientApp\src\store\rootReducers.ts" />
@@ -79,6 +95,8 @@
     <None Remove="ClientApp\src\views\IdLink\style.ts" />
     <None Remove="ClientApp\src\views\Layout\index.tsx" />
     <None Remove="ClientApp\src\views\Layout\style.ts" />
+    <None Remove="ClientApp\src\views\PlayDrawer\index.tsx" />
+    <None Remove="ClientApp\src\views\PlayDrawer\style.ts" />
     <None Remove="ClientApp\src\views\Settings\index.tsx" />
     <None Remove="ClientApp\src\views\Settings\pallete\aspenGold.ts" />
     <None Remove="ClientApp\src\views\Settings\pallete\blackBlazingYellow.ts" />
@@ -124,6 +142,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\src\assets\bilibili.png" />
+    <Content Include="ClientApp\src\assets\dailymotion.png" />
+    <Content Include="ClientApp\src\assets\niconico.png" />
+    <Content Include="ClientApp\src\assets\yt_icon_rgb.png" />
     <Content Include="ClientApp\src\assets\material-ui.png" />
     <Content Include="ClientApp\src\assets\react-redux.png" />
     <Content Include="ClientApp\src\assets\react.png" />
@@ -138,12 +160,31 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\core\" />
+    <Folder Include="ClientApp\src\views\Player\" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\AppRoute.tsx" />
     <TypeScriptCompile Include="ClientApp\src\AppRouteDrawer.tsx" />
     <TypeScriptCompile Include="ClientApp\src\AppStore.ts" />
+    <TypeScriptCompile Include="ClientApp\src\components\Autocomplete\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Autocomplete\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Button\ImageButton.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Button\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Tile\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Tile\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\global.ts" />
     <TypeScriptCompile Include="ClientApp\src\history.ts" />
     <TypeScriptCompile Include="ClientApp\src\store\Account\action.ts">
@@ -162,6 +203,24 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\store\Archive\reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Movie\action.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Movie\model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\Movie\reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\PlayDrawer\action.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\PlayDrawer\model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\store\PlayDrawer\reducer.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\store\rootAction.ts">
@@ -235,6 +294,12 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\Layout\index.tsx" />
     <TypeScriptCompile Include="ClientApp\src\views\Layout\style.ts" />
+    <TypeScriptCompile Include="ClientApp\src\views\PlayDrawer\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\PlayDrawer\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\Settings\index.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>

@@ -54,7 +54,8 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     },
     toolbarIcon: {
         position: "fixed",
-        alignItems: 'center',
+        //alignItems: 'center',
+        width: "auto",
         bottom: 0,
         padding: '0 8px',
         ...theme.mixins.toolbar,

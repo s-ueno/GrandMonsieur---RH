@@ -20,4 +20,14 @@ export function Delay(msec, lazyAction) {
         }, 1);
     });
 }
+var setTimeoutHandle = {};
+export function Lazy(action, msec) {
+    const key = action.toString();
+    clearTimeout(setTimeoutHandle[key]);
+    return new Promise((resolve, reject) => {
+        setTimeoutHandle[key] = setTimeout(() => {
+            resolve(action());
+        }, msec);
+    });
+}
 //# sourceMappingURL=global.js.map

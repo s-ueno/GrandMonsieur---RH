@@ -1,4 +1,5 @@
 ﻿import React, { Dispatch, useState } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import {
     makeStyles,
@@ -19,6 +20,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Backdrop from '@material-ui/core/Backdrop';
 import { IRootState } from "../../store/rootModel";
 import { MenuList, MenuProps } from "../../AppRouteDrawer";
+import { UpdateTitle } from "../../store/Layout/action";
 
 
 
@@ -31,31 +33,33 @@ const cssInCode = makeStyles(style);
 
 const BottomNav: React.FC = () => {
     const classes = cssInCode();
+    const dispatch = useDispatch();
     const title = useSelector((state: IRootState) => state.title);
 
-    const [value, setValue] = useState(0);
-
-
-
+    const [selectedValue, setSelectedValue] = useState(0);
     function MakeBottomNavigation() {
-        return MenuList.map((x: MenuProps) => {
+        return MenuList.map((x: MenuProps, index: number) => {
             return (
                 <BottomNavigationAction
                     label={x.text}
                     icon={<SvgIcon><path d={x.svgIcon} /></SvgIcon>}
-                    selected={x.text === title.title}
+                    to={x.to}
+                    component={Link}
                     key={`bnv-${uuidv4()}`}
                 />
             );
         });
     }
     function OnBottomMenuClick(e, val) {
-        setValue(val);
+        setSelectedValue(val);
+
+        const menuProps = MenuList[val];
+        dispatch(UpdateTitle(menuProps.text, menuProps.svgIcon));
     }
 
     return (
         <BottomNavigation
-            value={value}
+            value={selectedValue}
             onChange={(event, newValue) => OnBottomMenuClick(event, newValue)}
             showLabels
             className={classes.bottomNav}

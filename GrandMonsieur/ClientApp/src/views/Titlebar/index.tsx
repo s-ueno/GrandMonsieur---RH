@@ -1,4 +1,4 @@
-﻿import React, { Dispatch } from "react";
+﻿import React, { Dispatch, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     makeStyles,
@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import Backdrop from '@material-ui/core/Backdrop';
 import MenuIcon from '@material-ui/icons/Menu';
+import MuiAutocomplete from "../../components/Autocomplete";
 
 import {
     mdiLoginVariant,
@@ -65,6 +66,7 @@ const Titlebar: React.FC = () => {
     function ShowArchive() {
 
     }
+    const [value, setValue] = useState("");
     return (
         <div className={classes.root}>
             <AppBar
@@ -74,29 +76,52 @@ const Titlebar: React.FC = () => {
                 className={clsx(classes.appBar, drawer.open && classes.appBarShift)}
             >
                 <Toolbar className={clsx(classes.toolbar)}>
+
+                    { /*  
+                     <Hidden smDown implementation="css"> を使うと、position がおかしくなるので、CSSでsmDown を適用
+                     */ }
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         onClick={() => OnChangeDrawerState()}
                         edge="start"
-                        className={clsx(classes.menuButton, classes.smNavToolbar)}
+                        className={clsx(classes.menuButton, classes.smNavToolbar, classes.smDownHidden)}
                     >
                         <MenuIcon className={classes.svgIcon} />
                     </IconButton>
-
                     <div
-                        className={classes.flexGrow}
+                        className={clsx(classes.flexGrow, classes.textAlignCenter, classes.smDownHidden)}
                     >
                         {MakeNavSvgIcon(title.icon)}
                         {"  "}
                         <span className={classes.title}>{title.title}</span>
                     </div>
 
+                    <Hidden mdUp implementation="css">
+                        <div className={classes.flexGrow} />
+                    </Hidden>
+
+                    <MuiAutocomplete
+                        widthWhenFocused="400px"
+                        clearOnEscape={true}
+
+                        value={value}
+                        onInputChange={(e, v) => {
+                            setValue(v);
+                        }}
+                        onInputDone={(e, v) => {
+                            console.log(v);
+                        }}
+
+                        className={classes.autocomplete}
+                    />
+
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         onClick={() => ShowArchive()}
                         edge="start"
+                        className={classes.marginLeftRight}
                     >
                         <Badge
                             className={classes.badge}
@@ -110,6 +135,7 @@ const Titlebar: React.FC = () => {
                         aria-label="open drawer"
                         onClick={() => ShowAccont()}
                         edge="start"
+                        className={classes.marginLeftRight}
                     >
                         <SvgIcon><path d={mdiAccount} /></SvgIcon>
                     </IconButton>

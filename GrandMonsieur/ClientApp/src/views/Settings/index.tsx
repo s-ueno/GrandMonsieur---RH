@@ -139,13 +139,8 @@ const Settings: React.FC = () => {
         setValue(newValue);
     };
 
-    async function onChangeThemeAsync(e) {
-
-        dispatch(WaitSite(true));
-
-        await Delay(0, () => dispatch(ToggleTheme()));
-
-        dispatch(WaitSite(false));
+    function onChangeTheme(e) {
+        dispatch(ToggleTheme());
     }
 
     function onChangePallete(e: PalleteProps) {
@@ -206,7 +201,7 @@ const Settings: React.FC = () => {
                                 <Checkbox
                                     checked={x.Title === palette.title}
                                     position="end"
-                                    label="sample"
+                                    label="apply"
                                     onChange={e => onChangePallete(x)}
                                 />
                             }
@@ -325,7 +320,7 @@ const Settings: React.FC = () => {
                                 <CheckBox
                                     label="Turn on dark mode"
                                     checked={theme.mode === "dark"}
-                                    onChange={async e => await onChangeThemeAsync(e)}
+                                    onChange={onChangeTheme}
                                 />
                             </Grid>
                         </Grid>

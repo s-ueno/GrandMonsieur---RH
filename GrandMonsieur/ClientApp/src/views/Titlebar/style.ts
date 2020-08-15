@@ -13,9 +13,16 @@ const style: Styles<Theme, {}> = (theme) => ({
         [theme.breakpoints.down("sm")]: {
             visibility: "collapse",
             paddingRight: 0,
+            width: 0,
         }
     },
 
+    smDownHidden: {
+        [theme.breakpoints.down("sm")]: {
+            visibility: "collapse",
+            width: 0,
+        }
+    },
 
     toolbar: {
         paddingRight: 24,
@@ -45,10 +52,17 @@ const style: Styles<Theme, {}> = (theme) => ({
     },
     flexGrow: {
         flexGrow: 1,
+    },
+    textAlignCenter: {
         textAlign: "center",
     },
     menuButton: {
         marginRight: theme.spacing(8),
+        [theme.breakpoints.down("sm")]: {
+            visibility: "collapse",
+            width: 0,
+            marginRight: 0,
+        }
     },
     svgIcon: {
         position: "absolute",
@@ -61,21 +75,18 @@ const style: Styles<Theme, {}> = (theme) => ({
         display: 'none',
     },
 
-    animeStart: {
-        animation: `$spinStart 3000ms ${theme.transitions.easing.easeInOut}`,
-        //animationName: "$spinStart",
-        //animationDuration: "4000ms",
-        //animationIterationCount: "infinite",        
-        //animationTimingFunction: theme.transitions.easing.easeInOut as any,
-    },
-    "@keyframes spinStart": {
-        "0%": {
-            transform: "transform:rotate(0deg)",
-        },
-        "100%": {
-            transform: "transform:rotate(360deg)",
+    autocomplete: {
+        width: "200px",
+        margin: "0 3px 0 0",
+        backgroundColor: theme.palette.background.default,
+        [theme.breakpoints.down("sm")]: {
+            width: "150px",
         }
     },
+
+    marginLeftRight: {
+        margin: "0 3px",
+    }
 });
 
 export default style;
