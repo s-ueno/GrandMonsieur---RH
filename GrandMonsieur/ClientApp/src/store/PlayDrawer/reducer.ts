@@ -14,7 +14,7 @@ export function playDrawerReducer(
             return {
                 ...state,
                 display: action.display,
-                uri: action.uri ?? state.uri
+                movie: action.movie ?? state.movie
             };
         default:
             return state;

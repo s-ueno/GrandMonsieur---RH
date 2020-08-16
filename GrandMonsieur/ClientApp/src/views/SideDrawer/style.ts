@@ -106,6 +106,10 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     hiddenHeader: {
         visibility: "hidden",
     },
+    hiddenFooter: {
+        visibility: "collapse",
+        height: 0,
+    },
 });
 
 export default style;

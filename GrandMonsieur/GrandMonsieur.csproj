@@ -50,8 +50,12 @@
     <None Remove="ClientApp\src\components\Autocomplete\style.ts" />
     <None Remove="ClientApp\src\components\Button\ImageButton.tsx" />
     <None Remove="ClientApp\src\components\Button\style.ts" />
+    <None Remove="ClientApp\src\components\Progress\index.tsx" />
+    <None Remove="ClientApp\src\components\Progress\style.ts" />
     <None Remove="ClientApp\src\components\Tile\index.tsx" />
     <None Remove="ClientApp\src\components\Tile\style.ts" />
+    <None Remove="ClientApp\src\components\Volume\index.tsx" />
+    <None Remove="ClientApp\src\components\Volume\style.ts" />
     <None Remove="ClientApp\src\global.ts" />
     <None Remove="ClientApp\src\history.ts" />
     <None Remove="ClientApp\src\store\Account\action.ts" />
@@ -97,6 +101,8 @@
     <None Remove="ClientApp\src\views\Layout\style.ts" />
     <None Remove="ClientApp\src\views\PlayDrawer\index.tsx" />
     <None Remove="ClientApp\src\views\PlayDrawer\style.ts" />
+    <None Remove="ClientApp\src\views\Player\index.tsx" />
+    <None Remove="ClientApp\src\views\Player\style.ts" />
     <None Remove="ClientApp\src\views\Settings\index.tsx" />
     <None Remove="ClientApp\src\views\Settings\pallete\aspenGold.ts" />
     <None Remove="ClientApp\src\views\Settings\pallete\blackBlazingYellow.ts" />
@@ -160,7 +166,6 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\core\" />
-    <Folder Include="ClientApp\src\views\Player\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -179,10 +184,22 @@
     <TypeScriptCompile Include="ClientApp\src\components\Button\style.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Progress\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Progress\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\components\Tile\index.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\components\Tile\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Volume\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Volume\style.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\global.ts" />
@@ -298,6 +315,12 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\PlayDrawer\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Player\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\Player\style.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\Settings\index.tsx">

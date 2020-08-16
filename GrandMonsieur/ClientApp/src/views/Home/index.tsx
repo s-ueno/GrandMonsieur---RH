@@ -71,7 +71,7 @@ const Home: React.FC = () => {
 
 
     function onPlayerShow(movie: IMovie) {
-        dispatch(UpdatePlayDrawer("showPlayer", movie.uri));
+        dispatch(UpdatePlayDrawer("showPlayer", movie));
     }
     const onPlayerShowCallback = useCallback((movie: IMovie) => {
         onPlayerShow(movie);

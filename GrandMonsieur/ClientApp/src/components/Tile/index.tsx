@@ -23,14 +23,6 @@ import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined'
 
 import { IRootState } from "../../store/rootModel";
 import { IMovie } from "../../store/Movie/model";
-// @ts-ignore:TS2307
-import youtube from "../../assets/yt_icon_rgb.png";
-// @ts-ignore:TS2307
-import dailymotion from "../../assets/dailymotion.png";
-// @ts-ignore:TS2307
-import niconico from "../../assets/niconico.png";
-// @ts-ignore:TS2307
-import bilibili from "../../assets/niconico.png";
 import useAsyncEffect from "use-async-effect";
 import { Delay } from "../../global";
 import ImageButton from "../Button/ImageButton";
@@ -77,18 +69,6 @@ const VideoTile: React.FCX<Props> = (props) => {
         return result;
     }
 
-    function parseImage(movie: IMovie) {
-        if (movie.provider === "Youtube") {
-            return youtube;
-        }
-        if (movie.provider === "Dailymotion") {
-            return dailymotion;
-        }
-        if (movie.provider === "Bilibili") {
-            return bilibili;
-        }
-        return niconico;
-    }
     function createAvator(movie: IMovie) {
         if (movie.createUserIcon) {
             return <Avatar className={classes.userAvator} src={props.movie.createUserIcon} />
@@ -103,7 +83,7 @@ const VideoTile: React.FCX<Props> = (props) => {
         return <Avatar />;
     }
     return (
-        <Grid item xs={12} sm={6} md={3} className={classes.root}>
+        <Grid item xs={12} sm={6} md={6} lg={3} className={classes.root}>
 
             <Grow in={true}
                 unmountOnExit
@@ -127,7 +107,8 @@ const VideoTile: React.FCX<Props> = (props) => {
                                     className={classes.avatar}
                                 >
                                     <ImageButton
-                                        imageSrc={parseImage(props.movie)}
+                                        movie={props.movie}
+                                        movieMode="provider"
                                         className={classes.avatar}
                                         avatarClassName={classes.avatarImage}
                                     >

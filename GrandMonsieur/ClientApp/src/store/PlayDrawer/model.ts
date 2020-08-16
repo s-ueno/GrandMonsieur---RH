@@ -1,13 +1,14 @@
 ﻿import React from "react";
+import { IMovie } from "../Movie/model";
 
 
 export interface IPlayDrawer {
     display: "showPlayer" | "miniPlayer" | "hidden" | undefined;
-    uri?: string;
+    movie?: IMovie;
 }
 
 export const initialPlayDrawer: IPlayDrawer = {
     display: undefined,
-    uri: "",
+    movie: undefined,
 }
 
