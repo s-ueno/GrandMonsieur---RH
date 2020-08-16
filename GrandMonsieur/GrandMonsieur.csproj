@@ -156,7 +156,6 @@
     <Content Include="ClientApp\src\assets\react-redux.png" />
     <Content Include="ClientApp\src\assets\react.png" />
     <Content Include="ClientApp\src\assets\swallow1.png" />
-    <Content Include="ClientApp\src\assets\swallow2.png" />
     <Content Include="ClientApp\src\assets\typescript.png" />
   </ItemGroup>
 

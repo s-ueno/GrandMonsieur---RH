@@ -100,7 +100,7 @@ const PlayDrawer: React.FCX = () => {
                         titleTypographyProps={
                             {
                                 style: {
-                                    whiteSpace: "nowrap",
+                                    width: "40vw",
                                     overflow: "hidden",
                                     textOverflow: "ellepsis"
                                 }
@@ -121,7 +121,7 @@ const PlayDrawer: React.FCX = () => {
                     <MultiPlayer movie={playDrawer.movie} />
                 </Card>
 
-  
+
             </div>
         </Snackbar>
 

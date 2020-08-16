@@ -35,6 +35,7 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     cardHeader: {
         height: 80,
         padding: 0,
+        
     },
 
     headerActions: {
@@ -45,7 +46,7 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
         textAlign: "center",
     },
     avatar: {
-        
+
     },
     icon: {
         fontSize: 24,

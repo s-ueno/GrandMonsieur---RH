@@ -7,11 +7,37 @@ import {
     Grid,
     Hidden,
     LinearProgress,
-    Slider
+    Slider,
+    Button
 } from '@material-ui/core';
 import { IRootState } from "../../store/rootModel";
 import ReactPlayer from "react-player";
 import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
+
+/** 10/30秒戻る  */
+import Replay10Icon from '@material-ui/icons/Replay10';
+import Replay30Icon from '@material-ui/icons/Replay30';
+
+/** 10/30秒進む  */
+import Forward10Icon from '@material-ui/icons/Forward10';
+import Forward30Icon from '@material-ui/icons/Forward30';
+/** 前の動画 */
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+/** 次の動画 */
+import SkipNextIcon from '@material-ui/icons/SkipNext';
+/** 再生 */
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+/** 一時停止 */
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+/** 1動画リピート */
+import RepeatOneIcon from '@material-ui/icons/RepeatOne';
+/** リスト動画リピート */
+import RepeatIcon from '@material-ui/icons/Repeat';
+
+
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined';
+
 import LinearProgressWithLabel from "../../components/Progress";
 import Volume from "../../components/Volume";
 import { IMovie } from "../../store/Movie/model";
@@ -61,16 +87,48 @@ const Player: React.FC = () => {
                     <div className={classes.adsense}>
                         adsense
                     </div>
-                    <div className={classes.controls}>
-                        <div>
-                        </div>
-                        <div >
-                        </div>
+                    <div className={classes.topControls}>
+                        <Button>
+                            <PlaylistAddIcon
+                                className={classes.topIcon}
+                            />
+                        </Button>
+                        <Button>
+                            <CloudDownloadOutlinedIcon
+                                className={classes.topIcon}
+                            />
+                        </Button>
+                    </div>
+                    <div className={classes.middleControl1}>
+                        <Button>
+                            <Replay10Icon
+                                className={classes.play10}
+                            />
+                        </Button>
+                        
+                        <Button>
+                            <Forward10Icon
+                                className={classes.play10}
+                            />
+                        </Button>
+                        
+                    </div>
+                    <div className={classes.middleControl2}>
+                        <Button>
+                            <Replay30Icon
+                                className={classes.play30}
+                            />
+                        </Button>
+                        <Button>
+                            <Forward30Icon
+                                className={classes.play30}
+                            />
+                        </Button>
                     </div>
                 </Grid>
             </Grid>
             <Grid container>
-                <Grid item xs={8}>
+                <Grid item xs={8} className={classes.linerContainer}>
                     <LinearProgressWithLabel
                         className={classes.liner}
                         variant="buffer"
@@ -80,20 +138,51 @@ const Player: React.FC = () => {
                     />
                 </Grid>
                 <Grid item xs={4}>
+                    { /*  */ }
                     <Grid container className={classes.vertiacalCenter}>
-                        <Grid item xs={6} className={classes.viewCount}>
-                            <Typography variant="body2" color="textSecondary">
-                                {`${playDrawer.movie?.viewCount ?? "-"} views ${playDrawer.movie?.publishedAt ?? ""}`}
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={6}>
+                       
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid container>
+                <Grid item xs={8} className={classes.bottomControls}>
+                    <div>
+                        <Button className={classes.bottomIcon}>
+                            <PlayArrowIcon
+                                
+                            />
+                        </Button>
+                        <Button className={classes.bottomIcon}>
+                            <SkipNextIcon
+                                
+                            />
+                        </Button>
+                        <div className={classes.volume}>
                             <Volume
                                 value={volume}
                                 onChange={onVolumeChange}
                                 onMuteClick={onMuteToggle}
                             />
-                        </Grid>
-                    </Grid>
+                        </div>
+                    </div>
+                    <div className={classes.zoomContainer}>
+                        <Button className={classes.bottomIcon}>
+                            <RepeatOneIcon
+                                
+                            />
+                        </Button>
+                        <Button className={classes.bottomIcon}>
+                            <RepeatIcon
+                                
+                            />
+                        </Button>
+                        <Button className={classes.bottomIcon}>
+                            <ZoomOutMapIcon
+                                
+                            />
+                        </Button>
+                    
+                    </div>
                 </Grid>
             </Grid>
         </div>
