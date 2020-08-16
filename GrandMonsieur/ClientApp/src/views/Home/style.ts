@@ -12,10 +12,7 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: 10,
     },
-    gridList: {
-        width: "100%",
-        height: "100%",
-    },
+
     providerTitle: {
         height: "auto",
         fontSize: "large",

@@ -84,100 +84,76 @@ const VideoTile: React.FCX<Props> = (props) => {
         return <Avatar />;
     }
     return (
-        <Grid item xs={12} sm={6} md={6} lg={3} className={classes.root}>
+        <Grow in={true}
+            unmountOnExit
+            style={{ transformOrigin: 'bottom right 2cm' }}
+            {...(0 < props.delay ? { timeout: 300 * (props.delay * 0.5) } : {})}
+            onExited={e => {
+                console.log("onExited");
+            }}
 
-            <Grow in={true}
-                unmountOnExit
-                style={{ transformOrigin: 'bottom right 2cm' }}
-                {...(0 < props.delay ? { timeout: 300 * (props.delay * 0.5) } : {})}
-                onExited={e => {
-                    console.log("onExited");
-                }}
-                
-                addEndListener={e => {
-                    console.log("addEndListener");
-                }}
-            >
+            addEndListener={e => {
+                console.log("addEndListener");
+            }}
+        >
 
-                <Paper>
-                    <Card>
-                        <CardHeader
-                            className={classes.cardHeader}
-                            avatar={
-                                <a href={props.movie.uri} rel="noreferrer" target="_blank"
+            <Paper>
+                <Card>
+                    <CardHeader
+                        className={classes.cardHeader}
+                        avatar={
+                            <a href={props.movie.uri} rel="noreferrer" target="_blank"
+                                className={classes.avatar}
+                            >
+                                <ImageButton
+                                    movie={props.movie}
+                                    movieMode="provider"
                                     className={classes.avatar}
+                                    avatarClassName={classes.avatarImage}
                                 >
-                                    <ImageButton
-                                        movie={props.movie}
-                                        movieMode="provider"
-                                        className={classes.avatar}
-                                        avatarClassName={classes.avatarImage}
-                                    >
-                                    </ImageButton>
-                                </a>
-                            }
-                            title={props.movie.title}
-                            titleTypographyProps={
-                                {
-                                    style: {
-                                        whiteSpace: "pre-wrap",
-                                        overflow: "hidden",
-                                        textOverflow: "ellepsis"
-                                    }
+                                </ImageButton>
+                            </a>
+                        }
+                        title={props.movie.title}
+                        titleTypographyProps={
+                            {
+                                style: {
+                                    whiteSpace: "pre-wrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellepsis"
                                 }
                             }
-                        />
-                        <CardActionArea
-                            className={classes.media}
-                            onClick={e => props.onClick(props.movie)}
-                        >
-                            <CardMedia
-                                component="img"
-                                image={props.movie.thumbnailUri}
-                            />
-                            <span className={classes.duration}>{props.movie.duration}</span>
-                            <span className={classes.publishedAt}>{props.movie.publishedAt}</span>
-                            { /*
-                     
-                    <ReactPlayer
-                        //width="100%"
-                        //height={"calc(100% * 9/16) !important" as any}
-
-                        url={props.movie.uri}
-                        playing={false}
-                        onStart={() => {
-
-                        }}
-                        style={{
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            width: "100%",
-                            height: "100%",
-                        }}
+                        }
                     />
+                    <CardActionArea
+                        className={classes.media}
+                        onClick={e => props.onClick(props.movie)}
+                    >
+                        <CardMedia
+                            component="img"
+                            image={props.movie.thumbnailUri}
+                        />
+                        <span className={classes.duration}>{props.movie.duration}</span>
+                        <span className={classes.publishedAt}>{props.movie.publishedAt}</span>
+                    </CardActionArea>
+                    <CardActions disableSpacing>
+                        <IconButton>
+                            <PlaylistAddIcon />
+                        </IconButton>
+                        <IconButton>
+                            <CloudDownloadOutlinedIcon />
+                        </IconButton>
 
-                     */ }
-                        </CardActionArea>
-                        <CardActions disableSpacing>
-                            <IconButton>
-                                <PlaylistAddIcon />
-                            </IconButton>
-                            <IconButton>
-                                <CloudDownloadOutlinedIcon />
-                            </IconButton>
+                        <div className={classes.flexGrow} />
 
-                            <div className={classes.flexGrow} />
+                        {createAvator(props.movie)}
 
-                            {createAvator(props.movie)}
+                        <span className={classes.footer}>{`${createFotter(props.movie)}`}</span>
+                    </CardActions>
+                </Card>
 
-                            <span className={classes.footer}>{`${createFotter(props.movie)}`}</span>
-                        </CardActions>
-                    </Card>
-
-                </Paper>
-            </Grow>
-        </Grid>
+            </Paper>
+        </Grow>
     );
 };
 

@@ -56,6 +56,7 @@
     <None Remove="ClientApp\src\components\Tile\style.ts" />
     <None Remove="ClientApp\src\components\Volume\index.tsx" />
     <None Remove="ClientApp\src\components\Volume\style.ts" />
+    <None Remove="ClientApp\src\core\windowExtension.tsx" />
     <None Remove="ClientApp\src\global.ts" />
     <None Remove="ClientApp\src\history.ts" />
     <None Remove="ClientApp\src\store\Account\action.ts" />
@@ -164,10 +165,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\core\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\AppRoute.tsx" />
     <TypeScriptCompile Include="ClientApp\src\AppRouteDrawer.tsx" />
     <TypeScriptCompile Include="ClientApp\src\AppStore.ts" />
@@ -201,6 +198,7 @@
     <TypeScriptCompile Include="ClientApp\src\components\Volume\style.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\core\windowExtension.tsx" />
     <TypeScriptCompile Include="ClientApp\src\global.ts" />
     <TypeScriptCompile Include="ClientApp\src\history.ts" />
     <TypeScriptCompile Include="ClientApp\src\store\Account\action.ts">

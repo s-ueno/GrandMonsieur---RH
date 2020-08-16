@@ -6,8 +6,6 @@ import { drawerWidth, drawerMinWidth } from '../../global';
 //css
 const style: Styles<Theme, {}> = (theme) => ({
     root: {
-        padding: 5,
-        transitionDuration: '0.3s',
 
     },
     card: {
@@ -51,6 +49,8 @@ const style: Styles<Theme, {}> = (theme) => ({
         padding: 5,
         margin: 5,
         backgroundColor: "#00000090",
+        minWidth: "45px",
+        minHeight: "25px",
     },
     userAvator: {
         marginRight: 10,

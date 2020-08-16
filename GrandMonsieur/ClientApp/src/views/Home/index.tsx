@@ -35,12 +35,19 @@ type MemoProps = {
 
 const PlayerShowFreeze = memo<MemoProps>(props => {
     return (
-        <VideoTile
-            movie={props.x}
-            delay={props.index}
-            key={`tile-${uuidv4()}`}
-            onClick={props.onClick}
-        />);
+        <Grid item xs={12} sm={6} md={6} lg={3}
+            style={{
+                padding: 5,
+                transitionDuration: "0.3s",
+            }}>
+            <VideoTile
+                movie={props.x}
+                delay={props.index}
+                key={`tile-${uuidv4()}`}
+                onClick={props.onClick}
+            />
+        </Grid>
+    );
 });
 
 type PlayersMemoProps = {

@@ -34,6 +34,12 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     vertiacalCenter: {
         alignItems: "center"
     },
+
+    viewCountContainer: {
+        display: "grid",
+        justifyContent: "flex-start",
+    },
+
     viewCount: {
         paddingLeft: 5,
         fontSize: "0.8rem"
@@ -42,27 +48,32 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     topControls: {
         height: "auto",
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "flex-end"
     },
-    middleControl1: {
+    middleControl: {
         display: "flex",
-        justifyContent: "space-around"
-    },
-    middleControl2: {
-        display: "flex",
-        justifyContent: "center"
-    },
-    adsense: {
-        height: "40%",
-        width: "100%",
-        backgroundColor: "red"
+        justifyContent: "space-around;"
     },
     bottomControls: {
-        //marginTop: "-10px",
+        display: "flex",
+        justifyContent: "space-around;"
+    },
+    adsense: {
+        height: "60%",
+        width: "100%",
+        backgroundColor: theme.palette.background.default,
+        padding: 10,
+    },
+    description: {
+        height: "auto",
+        width: "100%",
+        backgroundColor: theme.palette.background.paper,
+        padding: 10,
     },
     topIcon: {
         fontSize: "2rem",
     },
+
     play: {
         fontSize: "6rem",
     },
@@ -70,11 +81,11 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
         fontSize: "4rem",
     },
 
-    play10: {
+    middleIcon: {
         fontSize: "3rem",
-    },
-    play30: {
-        fontSize: "3rem",
+        [theme.breakpoints.down("md")]: {
+            fontSize: "2rem",
+        },
     },
     volume: {
         minWidth: "200px",
@@ -88,6 +99,11 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
 
     bottomIcon: {
         minWidth: "auto",
+        minHeight: "40px",
+    },
+    powerdBy: {
+        position: "fixed",
+        right: "10px",
     }
 });
 

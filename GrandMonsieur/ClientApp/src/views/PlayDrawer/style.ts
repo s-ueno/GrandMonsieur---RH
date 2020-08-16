@@ -35,7 +35,7 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     cardHeader: {
         height: 80,
         padding: 0,
-        
+
     },
 
     headerActions: {
@@ -50,7 +50,24 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     },
     icon: {
         fontSize: 24,
-    }
+    },
+
+    gridList: {
+        display: "flex",
+        padding: "10px",
+        flexWrap: "inherit",
+        overflow: "auto",
+    },
+    playerContainer: {
+        position: "relative",
+        paddingTop: "56.25%",
+    },
+    player: {
+        position: "absolute",
+        top: 0,
+        left: 0
+    },
+
 
 });
 
