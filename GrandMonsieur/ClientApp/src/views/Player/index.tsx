@@ -107,13 +107,28 @@ const Player: React.FC = () => {
                         <SkipNextIcon
                         />
                     </Button>
-                    <div className={classes.volume}>
+                    <div className={clsx(classes.volume, classes.flexGrow)}>
                         <Volume
                             value={volume}
                             onChange={onVolumeChange}
                             onMuteClick={onMuteToggle}
                         />
                     </div>
+                    
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <SvgIcon >
+                            <path d={mdiSpeedometerSlow} />
+                        </SvgIcon>
+                    </Button>
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <SvgIcon >
+                            <path d={mdiSpeedometer} />
+                        </SvgIcon>
+                    </Button>
                     <Button
                         className={classes.bottomIcon}
                     >
@@ -140,20 +155,7 @@ const Player: React.FC = () => {
                         <Forward30Icon
                         />
                     </Button>
-                    <Button
-                        className={classes.bottomIcon}
-                    >
-                        <SvgIcon >
-                            <path d={mdiSpeedometerSlow} />
-                        </SvgIcon>
-                    </Button>
-                    <Button
-                        className={classes.bottomIcon}
-                    >
-                        <SvgIcon >
-                            <path d={mdiSpeedometer} />
-                        </SvgIcon>
-                    </Button>
+
                 </Grid>
             </Grid>
         </div>

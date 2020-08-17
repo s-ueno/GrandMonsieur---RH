@@ -145,7 +145,7 @@ const PlayDrawer: React.FCX = () => {
             }}
         >
             <div
-                className={clsx(classes.mainContaint, !drawer.open && classes.mainContaint4DrawerMinWidth)}
+                className={clsx(classes.mainContaint)}
             >
                 <Card
                     className={classes.cardStyle}

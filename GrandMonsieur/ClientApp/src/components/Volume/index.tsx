@@ -39,28 +39,31 @@ interface Props extends Omit<SliderProps, "value"> {
 const MakeIconMemo = memo<Props>(props => {
     if (props.__toggleIcon) {
         return (
-            <VolumeOffIcon style={{ width: "auto" }} />
+            <VolumeOffIcon  />
         );
     }
 
     const value = props.value as number;
     if (!value) {
         return (
-            <VolumeOffIcon style={{ width: "auto" }} />
+            <VolumeOffIcon  />
         );
     }
     if (value < 50) {
-        return <VolumeMuteIcon style={{ width: "auto" }} />
+        return <VolumeMuteIcon  />
     }
     if (value < 75) {
-        return <VolumeDownIcon style={{ width: "auto" }} />
+        return <VolumeDownIcon  />
     }
-    return <VolumeUpIcon style={{ width: "auto" }} />
+    return <VolumeUpIcon  />
 });
 
 const VolumeButtonMemo = memo<Props>(props => {
     return (
-        <Button onClick={e => props?.__toggle()}>
+        <Button
+            onClick={e => props?.__toggle()}
+            style={{ width: "auto" }}
+        >
             <MakeIconMemo  {...props} />
         </Button>
     )

@@ -8,7 +8,7 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
 
     root: {
         height: "100%",
-        width:"100%",
+        width: "100%",
     },
 
     playerGrid: {
@@ -20,7 +20,8 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
 
     playerContainer: {
         position: "relative",
-        paddingTop: "56.25%",
+        // paddingTop: "56.25%", // 16:9
+        paddingTop: "42.85714%"  // 21:9
     },
     player: {
         position: "absolute",

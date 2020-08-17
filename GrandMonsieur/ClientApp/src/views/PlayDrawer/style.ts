@@ -29,7 +29,6 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
 
 
     mainContaint: {
-        //width: `calc(100vw - ${drawerWidth}px)`,
         height: "100vh",
         backgroundColor: theme.palette.background.default,
         [theme.breakpoints.up("md")]: {
@@ -41,16 +40,11 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     cardStyle: {
         height: "100%",
     },
-    mainContaint4DrawerMinWidth: {
-        width: `calc(100vw - ${drawerMinWidth}px)`,
-    },
-
     cardHeader: {
         height: 80,
         padding: 0,
 
     },
-
     headerActions: {
         height: 80,
         padding: 20,
@@ -67,20 +61,10 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
 
 
     playerContainer: {
-        width: "85%",
-        paddingTop: "50px",
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-            paddingTop: 0,
-        },
+        width: "100%",
     },
     playerContainer4DrawerMinWidth: {
-        width: "80%",
-        paddingTop: 0,
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-            paddingTop: 0,
-        },
+        width: "100%",
     },
     player: {
     },
