@@ -18,6 +18,7 @@ const cssInCode = makeStyles((theme) => ({
     search: {
         position: 'relative',
         marginLeft: 0,
+        backgroundColor: "transparent",
     },
 }));
 

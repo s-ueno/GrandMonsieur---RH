@@ -135,6 +135,7 @@ const PlayDrawer: React.FCX = () => {
             >
 
                 <Card
+                    className={classes.cardStyle}
                     ref={cardRef}
                 >
                     <CardHeader

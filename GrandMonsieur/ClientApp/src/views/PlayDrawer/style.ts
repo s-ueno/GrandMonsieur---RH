@@ -9,17 +9,25 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
     root: {
         top: 0,
         left: drawerWidth,
-        width: `calc(100vw - ${drawerWidth}px)`,
-        //marginLeft: drawerWidth,
+        //width: `calc(100vw - ${drawerWidth}px)`,
     },
     root4DrawerMinWidth: {
         left: drawerMinWidth,
-        width: `calc(100vw - ${drawerMinWidth}px)`,
-        //marginLeft: drawerWidth,
+        //width: `calc(100vw - ${drawerMinWidth}px)`,
+    },
+    cardStyle: {
+
+    },
+    gridList: {
+        display: "flex",
+        padding: "10px",
+        flexWrap: "inherit",
+        overflow: "auto",
     },
 
+
     mainContaint: {
-        width: `calc(100vw - ${drawerWidth}px)`,
+        //width: `calc(100vw - ${drawerWidth}px)`,
         height: "100vh",
         backgroundColor: theme.palette.background.default,
         [theme.breakpoints.up("md")]: {
@@ -52,12 +60,7 @@ const style: Styles<Theme, {}> = (theme: Theme) => ({
         fontSize: 24,
     },
 
-    gridList: {
-        display: "flex",
-        padding: "10px",
-        flexWrap: "inherit",
-        overflow: "auto",
-    },
+
     playerContainer: {
         position: "relative",
         paddingTop: "56.25%",

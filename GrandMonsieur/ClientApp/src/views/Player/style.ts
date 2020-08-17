@@ -6,14 +6,29 @@ import { drawerWidth, drawerMinWidth } from '../../global';
 //css
 const style: Styles<Theme, {}> = (theme: Theme) => ({
 
+    root: {
+        maxWidth: `calc(100vw - ${drawerWidth}px)`,
+    },
+    rootDrawerClose: {
+        maxWidth: `calc(100vw - ${drawerMinWidth}px)`,
+    },
+
+    playerGrid: {
+        //maxHeight: "80%",
+
+    },
+
     playerContainer: {
         position: "relative",
         paddingTop: "56.25%",
+        //maxHeight: "calc(70vh - 50px)",
     },
     player: {
         position: "absolute",
         top: 0,
-        left: 0
+        left: 0,
+        //maxHeight: "80%",
+        //maxHeight: "calc(70vh - 50px)",
     },
 
     linerContainer: {

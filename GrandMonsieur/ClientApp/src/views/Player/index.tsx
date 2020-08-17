@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     makeStyles,
@@ -60,6 +60,7 @@ const Player: React.FC = () => {
     const classes = cssInCode();
     const overlay = useSelector((x: IRootState) => x.overlay);
     const playDrawer = useSelector((x: IRootState) => x.playDrawer);
+    const drawer = useSelector((x: IRootState) => x.drawer);
 
     const [volume, setVolume] = useState(50);
     function onVolumeChange(e, newValue?: number | number[]) {
@@ -74,11 +75,22 @@ const Player: React.FC = () => {
     function viewsCountAndAt(movie: IMovie) {
         return `${movie?.publishedAt}  ${movie?.viewCount} views`;
     }
+    const [playerGridRetio, setPlayerGridRetio] = useState({
+        player: 8 as any,
+        adsense: 4 as any,
+    });
 
+    //useEffect(() => {
+    //    if (drawer.open) {
+    //        setPlayerGridRetio({ player: 8, adsense: 4 })
+    //    } else {
+    //        //setPlayerGridRetio({ player: 7, adsense: 5 })
+    //    }
+    //}, [drawer.open]);
     return (
-        <div>
-            <Grid container>
-                <Grid item xs={8}>
+        <div className={clsx(classes.root, !drawer.open && classes.rootDrawerClose)}>
+            <Grid container className={classes.playerGrid}>
+                <Grid item xs={playerGridRetio.player}>
                     <div className={classes.playerContainer}>
                         <ReactPlayer
                             className={classes.player}
@@ -90,8 +102,8 @@ const Player: React.FC = () => {
                     </div>
                 </Grid>
 
-               
-                <Grid item xs={4}>
+
+                <Grid item xs={playerGridRetio.adsense}>
                     <div className={classes.adsense}>
                         adsense
                     </div>
@@ -147,7 +159,7 @@ const Player: React.FC = () => {
                     </Hidden>
 
                     <Hidden mdDown implementation="css">
-                        <div className={classes.description}> 
+                        <div className={classes.description}>
                             <div className={classes.topControls}>
                                 <Button>
                                     <PlaylistAddIcon
@@ -165,7 +177,7 @@ const Player: React.FC = () => {
                 </Grid>
             </Grid>
             <Grid container>
-                <Grid item xs={8} className={classes.linerContainer}>
+                <Grid item xs={playerGridRetio.player} className={classes.linerContainer}>
                     <LinearProgressWithLabel
                         className={classes.liner}
                         variant="buffer"
@@ -174,12 +186,12 @@ const Player: React.FC = () => {
                         text="14:42:12 / 14:49:52"
                     />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={playerGridRetio.adsense}>
 
                 </Grid>
             </Grid>
             <Grid container>
-                <Grid item xs={8} >
+                <Grid item xs={playerGridRetio.player} >
                     <div>
                         <Button className={classes.bottomIcon}>
                             <PlayArrowIcon
@@ -263,14 +275,14 @@ const Player: React.FC = () => {
 
                     </div>
                 </Grid>
-                <Grid item xs={4} className={classes.viewCountContainer}>
+                <Grid item xs={playerGridRetio.adsense} className={classes.viewCountContainer}>
                     { /*  */}
                     <Typography variant="body2" color="textSecondary" className={classes.viewCount}>
                         {`${playDrawer.movie?.viewCount ?? "-"} views`}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" className={classes.viewCount}>
                         {`published at. ${playDrawer.movie?.publishedAt ?? ""}`}
-                    </Typography>                
+                    </Typography>
                 </Grid>
             </Grid>
         </div>
