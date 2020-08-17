@@ -72,25 +72,11 @@ const Player: React.FC = () => {
 
     }
 
-    function viewsCountAndAt(movie: IMovie) {
-        return `${movie?.publishedAt}  ${movie?.viewCount} views`;
-    }
-    const [playerGridRetio, setPlayerGridRetio] = useState({
-        player: 8 as any,
-        adsense: 4 as any,
-    });
 
-    //useEffect(() => {
-    //    if (drawer.open) {
-    //        setPlayerGridRetio({ player: 8, adsense: 4 })
-    //    } else {
-    //        //setPlayerGridRetio({ player: 7, adsense: 5 })
-    //    }
-    //}, [drawer.open]);
     return (
-        <div className={clsx(classes.root, !drawer.open && classes.rootDrawerClose)}>
-            <Grid container className={classes.playerGrid}>
-                <Grid item xs={playerGridRetio.player}>
+        <div className={classes.root}>
+            <Grid container className={clsx(classes.playerGrid, !drawer.open && classes.playerGridDrawerClose)}>
+                <Grid item xs={12}>
                     <div className={classes.playerContainer}>
                         <ReactPlayer
                             className={classes.player}
@@ -101,83 +87,7 @@ const Player: React.FC = () => {
                         />
                     </div>
                 </Grid>
-
-
-                <Grid item xs={playerGridRetio.adsense}>
-                    <div className={classes.adsense}>
-                        adsense
-                    </div>
-                    <Hidden lgUp implementation="css">
-                        <div className={classes.topControls}>
-                            <Button>
-                                <PlaylistAddIcon
-                                    className={classes.topIcon}
-                                />
-                            </Button>
-                            <Button>
-                                <CloudDownloadOutlinedIcon
-                                    className={classes.topIcon}
-                                />
-                            </Button>
-                        </div>
-                        <div className={classes.middleControl}>
-                            <Button>
-                                <Replay30Icon
-                                    className={classes.middleIcon}
-                                />
-                            </Button>
-
-                            <Button>
-                                <Replay10Icon
-                                    className={classes.middleIcon}
-                                />
-                            </Button>
-
-                            <Button>
-                                <Forward10Icon
-                                    className={classes.middleIcon}
-                                />
-                            </Button>
-                            <Button>
-                                <Forward30Icon
-                                    className={classes.middleIcon}
-                                />
-                            </Button>
-                        </div>
-                        <div className={classes.bottomControls}>
-                            <Button>
-                                <SvgIcon className={classes.middleIcon}>
-                                    <path d={mdiSpeedometerSlow} />
-                                </SvgIcon>
-                            </Button>
-                            <Button>
-                                <SvgIcon className={classes.middleIcon}>
-                                    <path d={mdiSpeedometer} />
-                                </SvgIcon>
-                            </Button>
-                        </div>
-                    </Hidden>
-
-                    <Hidden mdDown implementation="css">
-                        <div className={classes.description}>
-                            <div className={classes.topControls}>
-                                <Button>
-                                    <PlaylistAddIcon
-                                        className={classes.topIcon}
-                                    />
-                                </Button>
-                                <Button>
-                                    <CloudDownloadOutlinedIcon
-                                        className={classes.topIcon}
-                                    />
-                                </Button>
-                            </div>
-                        </div>
-                    </Hidden>
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item xs={playerGridRetio.player} className={classes.linerContainer}>
+                <Grid item xs={12}>
                     <LinearProgressWithLabel
                         className={classes.liner}
                         variant="buffer"
@@ -186,103 +96,64 @@ const Player: React.FC = () => {
                         text="14:42:12 / 14:49:52"
                     />
                 </Grid>
-                <Grid item xs={playerGridRetio.adsense}>
+                <Grid item xs={12}>
 
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item xs={playerGridRetio.player} >
-                    <div>
-                        <Button className={classes.bottomIcon}>
-                            <PlayArrowIcon
 
-                            />
-                        </Button>
-                        <Button className={classes.bottomIcon}>
-                            <SkipNextIcon
-
-                            />
-                        </Button>
-                        <div className={classes.volume}>
-                            <Volume
-                                value={volume}
-                                onChange={onVolumeChange}
-                                onMuteClick={onMuteToggle}
-                            />
-                        </div>
+                    <Button className={classes.bottomIcon}>
+                        <PlayArrowIcon
+                        />
+                    </Button>
+                    <Button className={classes.bottomIcon}>
+                        <SkipNextIcon
+                        />
+                    </Button>
+                    <div className={classes.volume}>
+                        <Volume
+                            value={volume}
+                            onChange={onVolumeChange}
+                            onMuteClick={onMuteToggle}
+                        />
                     </div>
-                    <div className={classes.zoomContainer}>
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <Replay30Icon
+                        />
+                    </Button>
 
-                        <Hidden mdDown implementation="css">
-                            <Button
-                                className={classes.bottomIcon}
-                            >
-                                <Replay30Icon
-                                />
-                            </Button>
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <Replay10Icon
+                        />
+                    </Button>
 
-                            <Button
-                                className={classes.bottomIcon}
-                            >
-                                <Replay10Icon
-                                />
-                            </Button>
-
-                            <Button
-                                className={classes.bottomIcon}
-                            >
-                                <Forward10Icon
-                                />
-                            </Button>
-                            <Button
-                                className={classes.bottomIcon}
-                            >
-                                <Forward30Icon
-                                />
-                            </Button>
-                            <Button
-                                className={classes.bottomIcon}
-                            >
-                                <SvgIcon >
-                                    <path d={mdiSpeedometerSlow} />
-                                </SvgIcon>
-                            </Button>
-                            <Button
-                                className={classes.bottomIcon}
-                            >
-                                <SvgIcon >
-                                    <path d={mdiSpeedometer} />
-                                </SvgIcon>
-                            </Button>
-                        </Hidden>
-
-
-                        <Button className={classes.bottomIcon}>
-                            <RepeatOneIcon
-
-                            />
-                        </Button>
-                        <Button className={classes.bottomIcon}>
-                            <RepeatIcon
-
-                            />
-                        </Button>
-                        <Button className={classes.bottomIcon}>
-                            <ZoomOutMapIcon
-
-                            />
-                        </Button>
-
-                    </div>
-                </Grid>
-                <Grid item xs={playerGridRetio.adsense} className={classes.viewCountContainer}>
-                    { /*  */}
-                    <Typography variant="body2" color="textSecondary" className={classes.viewCount}>
-                        {`${playDrawer.movie?.viewCount ?? "-"} views`}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" className={classes.viewCount}>
-                        {`published at. ${playDrawer.movie?.publishedAt ?? ""}`}
-                    </Typography>
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <Forward10Icon
+                        />
+                    </Button>
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <Forward30Icon
+                        />
+                    </Button>
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <SvgIcon >
+                            <path d={mdiSpeedometerSlow} />
+                        </SvgIcon>
+                    </Button>
+                    <Button
+                        className={classes.bottomIcon}
+                    >
+                        <SvgIcon >
+                            <path d={mdiSpeedometer} />
+                        </SvgIcon>
+                    </Button>
                 </Grid>
             </Grid>
         </div>

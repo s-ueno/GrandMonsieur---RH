@@ -20,6 +20,7 @@ import {
     ListItem,
     GridList,
     GridListTile,
+    Typography,
     IconButton
 } from '@material-ui/core';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -119,6 +120,19 @@ const PlayDrawer: React.FCX = () => {
         setCardRefHeight(cardRef.current?.clientHeight);
     }, [cardRef /*, windowSize.height, windowSize.width */ ]);
 
+    function parseSubHeader(movie : IMovie) {
+        if (!movie) return "";
+
+        let s = "";
+        if (movie.viewCount) {
+            s = `${movie.viewCount} views`;
+        }
+        if (movie.publishedAt) {
+            s = `${s}  -  published At. ${movie.publishedAt}`;
+        }
+        return s;
+    }
+
     return (
         <Snackbar
             className={clsx(classes.root, !drawer.open && classes.root4DrawerMinWidth)}
@@ -133,7 +147,6 @@ const PlayDrawer: React.FCX = () => {
             <div
                 className={clsx(classes.mainContaint, !drawer.open && classes.mainContaint4DrawerMinWidth)}
             >
-
                 <Card
                     className={classes.cardStyle}
                     ref={cardRef}
@@ -162,12 +175,13 @@ const PlayDrawer: React.FCX = () => {
                         titleTypographyProps={
                             {
                                 style: {
-                                    width: "40vw",
                                     overflow: "hidden",
                                     textOverflow: "ellepsis"
                                 }
                             }
                         }
+                        
+                        subheader={parseSubHeader(playDrawer.movie)}
                         action={
                             <div className={classes.headerActions}>
                                 <ImageButton
@@ -179,7 +193,10 @@ const PlayDrawer: React.FCX = () => {
                             </div>
                         }
                     />
-                    <MultiPlayer movie={playDrawer.movie} />
+
+                    <div className={clsx(classes.playerContainer, !drawer.open && classes.playerContainer4DrawerMinWidth)}>
+                        <MultiPlayer movie={playDrawer.movie} />
+                    </div>                    
                 </Card>
 
                 <div

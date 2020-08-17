@@ -8,7 +8,8 @@ import {
     Box,
     LinearProgress,
     LinearProgressProps,
-    Typography,
+    Typography,
+
     Slider,
     SliderProps,
     Button
@@ -28,7 +29,7 @@ const cssInCode = makeStyles(style);
 
 interface Props extends Omit<SliderProps, "value"> {
     value: number;
-    onMuteClick?: (mute:boolean) => void;
+    onMuteClick?: (mute: boolean) => void;
 
     __toggle?: () => void;
     __toggleIcon?: boolean;
@@ -38,23 +39,23 @@ interface Props extends Omit<SliderProps, "value"> {
 const MakeIconMemo = memo<Props>(props => {
     if (props.__toggleIcon) {
         return (
-            <VolumeOffIcon />
+            <VolumeOffIcon style={{ width: "auto" }} />
         );
     }
 
-    const value = props.value as number;    
+    const value = props.value as number;
     if (!value) {
         return (
-            <VolumeOffIcon />
+            <VolumeOffIcon style={{ width: "auto" }} />
         );
     }
     if (value < 50) {
-        return <VolumeMuteIcon />
+        return <VolumeMuteIcon style={{ width: "auto" }} />
     }
     if (value < 75) {
-        return <VolumeDownIcon />
+        return <VolumeDownIcon style={{ width: "auto" }} />
     }
-    return <VolumeUpIcon />
+    return <VolumeUpIcon style={{ width: "auto" }} />
 });
 
 const VolumeButtonMemo = memo<Props>(props => {
