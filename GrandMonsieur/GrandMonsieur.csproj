@@ -100,6 +100,8 @@
     <None Remove="ClientApp\src\views\IdLink\style.ts" />
     <None Remove="ClientApp\src\views\Layout\index.tsx" />
     <None Remove="ClientApp\src\views\Layout\style.ts" />
+    <None Remove="ClientApp\src\views\NotFound\index.tsx" />
+    <None Remove="ClientApp\src\views\NotFound\style.ts" />
     <None Remove="ClientApp\src\views\PlayDrawer\index.tsx" />
     <None Remove="ClientApp\src\views\PlayDrawer\style.ts" />
     <None Remove="ClientApp\src\views\Player\index.tsx" />
@@ -308,6 +310,12 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\Layout\index.tsx" />
     <TypeScriptCompile Include="ClientApp\src\views\Layout\style.ts" />
+    <TypeScriptCompile Include="ClientApp\src\views\NotFound\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\views\NotFound\style.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\views\PlayDrawer\index.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>

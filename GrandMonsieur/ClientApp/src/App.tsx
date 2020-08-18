@@ -30,6 +30,7 @@ const cssInCode = makeStyles((theme) => ({
         color: '#fff',
     },
 }));
+
 const App: React.FC = () => {
     const css = cssInCode();
     const dispatch: Dispatch<any> = useDispatch();
@@ -59,6 +60,16 @@ const App: React.FC = () => {
                     backgroundColor: customPallete.appBar
                 }
             },
+        },
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 960,
+                android9dot6Tablet: 1200,
+                lg: 1280,
+                xl: 1920,
+            }
         }
     });
 

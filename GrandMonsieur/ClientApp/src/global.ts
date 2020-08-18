@@ -18,6 +18,12 @@ declare module 'react-redux' {
     interface DefaultRootState extends IRootState { }
 }
 
+declare module "@material-ui/core/styles/createBreakpoints" {
+    interface BreakpointOverrides {
+        android9dot6Tablet: true;
+    }
+}
+
 export function Delay(msec: number, lazyAction?: Function) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
